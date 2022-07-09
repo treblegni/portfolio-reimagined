@@ -1,7 +1,7 @@
 # Personal Website Project
-A simple website meant to showcase my skills, experience, and projects. The project structure is generated using a Vite predefined template. All designs and components are created by me unless otherwise credited.
+A simple website meant to showcase my skills, experience, and projects. This project is created with Vite and is generated using a Vite predefined template. All designs and components are created by me unless otherwise credited.
 
-# Mock Up
+## Mock Up
 
 
 

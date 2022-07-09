@@ -2,8 +2,7 @@
 A simple website meant to showcase my skills, experience, and projects. This project is created with Vite and is generated using a Vite predefined template. All designs and components are created by me unless otherwise credited.
 
 ## Mock Up
-
-
+![Landing Page](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Landing Page.png?raw=true)
 
 # Vue 3 + TypeScript + Vite
 

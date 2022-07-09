@@ -2,12 +2,12 @@
 A simple website meant to showcase my skills, experience, and projects. This project is created with Vite and is generated using a Vite predefined template. All designs and components are created by me unless otherwise credited.
 
 ## Mock Up
+![Specs](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Design-Specifications.png?raw=true)
 ![Landing Page](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Landing-Page.png?raw=true)
 ![Home Page](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Home-Page.png?raw=true)
 ![Experience Page](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Experience-Page.png?raw=true)
 ![About Page](https://github.com/treblegni/portfolio-reimagined/blob/main/design/About-Page.png?raw=true)
 ![Contact Page](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Contact-Page.png?raw=true)
-![Specs](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Design-Specifications.png?raw=true)
 
 # Vue 3 + TypeScript + Vite
 

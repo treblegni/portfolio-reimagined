@@ -1,5 +1,13 @@
 # Personal Website Project
-A simple website meant to showcase my skills, experience, and projects. This project is created with Vite and is generated using a Vite predefined template. All designs and components are created by me unless otherwise credited.
+A simple website meant to showcase my skills, experience, and projects. All designs and components are created by me unless otherwise credited.
+
+## Built with
+- Vite
+- Vue
+- Node.JS
+- TypeScript
+- TailwindCSS
+- Anime.JS
 
 ## Mock Up
 ![Specs](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Design-Specifications.png?raw=true)

@@ -1,7 +1,6 @@
 import { createRouter,createWebHistory } from 'vue-router'
 // Pages
 import Home from '../pages/Home.vue'
-import Landing from '../pages/Landing.vue'
 
 // defined routes
 const routes = [

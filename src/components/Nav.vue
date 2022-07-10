@@ -1,9 +1,9 @@
 <template>
-<nav :class="nav">
+<nav class="flex justify-between items-center h-20">
   <SVGRenderer 
     :svg-string="svgString"
     class="h-10"></SVGRenderer>
-  <div :class="navButtonContainer">
+  <div class="grid grid-cols-3">
     <button :class="navButton">
       About
     </button>
@@ -17,24 +17,21 @@
 </nav>
 </template>
 
-<script setup lang="ts">
-import { computed,onMounted } from 'vue'
+<script lang="ts">
 import svgString from '../assets/logo-name.svg?raw'
 import SVGRenderer from './SVGRenderer.vue';
 
-onMounted(() => {
-  
-})
-
-const nav = computed(() =>({
-  'flex justify-between items-center h-20': true
-}))
-
-const navButton = computed(() => ({
-  'title-bold hover:text-green-slime': true
-}))
-
-const navButtonContainer = computed(() =>({
-  'grid grid-cols-3': true
-}))
+export default {
+  components: {
+    SVGRenderer
+  },
+  data: () => ({
+    svgString
+  }),
+  computer: {
+    navButton: () => ({
+      'tab hover:text-green-slime': true
+    })
+  }
+}
 </script>

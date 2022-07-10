@@ -3,7 +3,7 @@ import Introduction from '../components/Introduction.vue';
 </script>
 
 <template>
-<div>
+<div class="flex items-center justify-center h-full">
   <Introduction></Introduction>
 </div>
 </template>

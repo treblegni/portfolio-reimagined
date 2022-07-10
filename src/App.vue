@@ -2,7 +2,15 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 // import HelloWorld from './components/HelloWorld.vue'
-import { computed } from 'vue'
+import { computed,onMounted } from 'vue'
+
+onMounted(() => {
+  
+})
+
+const mobileStateHandler = () => {
+  
+}
 
 const test = computed(() =>({
   'bg-red-200 text-lg': true
@@ -10,10 +18,7 @@ const test = computed(() =>({
 </script>
 
 <template>
-<div :class="test">
-Ingelbert Figueroa
-</div>
-  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+<router></router>
 </template>
 
 <style>

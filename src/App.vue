@@ -1,30 +1,25 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-// import HelloWorld from './components/HelloWorld.vue'
-import { computed,onMounted } from 'vue'
-
-onMounted(() => {
-  
-})
-
-const mobileStateHandler = () => {
-  
-}
-
-const test = computed(() =>({
-  'bg-red-200 text-lg': true
-}))
-</script>
-
 <template>
-<router></router>
+<Nav></Nav>
+<router-view></router-view>
 </template>
 
-<style>
-#app {
-  /* font-family: 'Source Code Pro','Inter' monospace, sans-serif; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+<script setup lang="ts">
+import { onMounted,ref } from 'vue'
+import type { Ref } from 'vue'
+import Nav from './components/Nav.vue';
+
+let isMobile: Ref<boolean> = ref(false)
+
+const mobileStateHandler = () => {
+  if (window.innerWidth < 768 && !isMobile.value) {
+    isMobile.value = true
+  }
+  if (window.innerWidth >= 768 && isMobile.value) {
+    isMobile.value = false
+  }
 }
-</style>
+
+onMounted(() => {
+  mobileStateHandler()
+})
+</script>

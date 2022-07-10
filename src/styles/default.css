@@ -1,0 +1,28 @@
+#app {
+  /* font-family: 'Source Code Pro','Inter' monospace, sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #D7DBD3;
+  background-color: #30423E;
+  height: 100vh;
+}
+
+.title-bolder {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 700;
+}
+
+.title-bold {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 600;
+}
+
+.title-semibold {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 500;
+}
+
+.title-regular {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 400;
+}

@@ -4,9 +4,9 @@ body {
 }
 
 #app {
-  /* font-family: 'Source Code Pro','Inter' monospace, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
   height: 100vh;
 }
 
@@ -25,8 +25,8 @@ body {
 .sub-title {
   font-family: 'Source Code Pro',monospace;
   font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 1.1rem !important
+  font-size: 1rem;
+  line-height: 0.75rem !important
 }
 
 .content-title {
@@ -34,10 +34,16 @@ body {
   font-weight: 600;
 }
 
+.content-text {
+  font-family: 'Inter',sans-serif;
+  font-weight: 400;
+  @apply text-sm;
+}
+
 .tab {
   font-family: 'Source Code Pro',monospace;
   font-weight: 500;
-  @apply text-base;
+  @apply text-sm;
 }
 
 .action-button-text {

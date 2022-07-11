@@ -1,9 +1,9 @@
 <template>
 <Nav
   v-if="navigationStore.homeVisited"
-  class="px-10 absolute top-0 left-0 w-full">
+  class="px-10 fixed z-10 top-0 left-0 w-full">
 </Nav>
-<div class="flex h-full justify-center px-10">
+<div class="flex justify-center px-10">
   <div class="max-w-screen-lg">
     <router-view></router-view>
   </div>

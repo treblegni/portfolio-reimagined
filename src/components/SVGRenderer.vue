@@ -8,15 +8,11 @@
 <script lang="ts" setup>
 import { ref,computed,onMounted } from 'vue'
 const
-	emits = defineEmits(['visited']),
 	props = defineProps({
-		'svgString':String,
-		'visited':Boolean
+		'svgString':String
 	}),
 	svgContainer = ref<HTMLElement | null>(null)
-onMounted(() => {
-	renderSVG()
-})
+
 const	renderSVG = () => {
 	if (props.svgString && svgContainer.value) {
 		svgContainer.value.innerHTML = props.svgString
@@ -33,8 +29,10 @@ const	renderSVG = () => {
 }
 const containerClasses = computed(() => {
 	return {
-		'flex justify-center align-center': true,
-		// 'bg-white': !props.visited
+		'flex justify-center align-center': true
 	}
+})
+onMounted(() => {
+	renderSVG()
 })
 </script>

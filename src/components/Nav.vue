@@ -3,35 +3,26 @@
   <SVGRenderer 
     :svg-string="svgString"
     class="h-10"></SVGRenderer>
-  <div class="grid grid-cols-3">
-    <button :class="navButton">
+  <div class="grid grid-flow-col gap-8 items-center">
+    <a href="#about" :class="navButton">
       About
-    </button>
-    <button :class="navButton">
+    </a>
+    <!-- <button :class="navButton">
       Experience
-    </button>
-    <button :class="navButton">
-      Contact
-    </button>
+    </button> -->
+    <a href="#contact" class="action-button hover:text-green-slime hover:border-green-slime">
+      Message Me
+    </a>
   </div>
 </nav>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { computed } from 'vue'
 import svgString from '../assets/logo-name.svg?raw'
 import SVGRenderer from './SVGRenderer.vue';
 
-export default {
-  components: {
-    SVGRenderer
-  },
-  data: () => ({
-    svgString
-  }),
-  computer: {
-    navButton: () => ({
-      'tab hover:text-green-slime': true
-    })
-  }
-}
+const navButton = computed(() : object => ({
+  'tab hover:text-green-slime': true
+}))
 </script>

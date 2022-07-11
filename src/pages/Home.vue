@@ -20,7 +20,7 @@ import AboutMe from '../components/AboutMe.vue'
 import Contact from '../components/Contact.vue'
 
 const introduction = computed(() => ({
-  'absolute w-screen bg-black px-11': !navigationStore.homeVisited,
+  // 'absolute w-screen bg-black px-11': !navigationStore.homeVisited,
   'flex justify-center items-center h-screen w-full': true
 }))
 </script>

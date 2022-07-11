@@ -11,13 +11,12 @@
     <a href="#about" :class="navButton">
       About
     </a>
-    <!-- <button :class="navButton">
-      Experience
-    </button> -->
-    <a href="#contact" class="action-button hover:text-green-slime hover:border-green-slime">
+    <a href="#contact" :class="navButton">
       Message Me
     </a>
-    <span class="tab"><span class="text-green-slime">Important:</span> This site is under construction!</span>
+    <a :href="pdf" target="_blank" class="action-button hover:text-green-slime hover:border-green-slime cursor-pointer">
+      Resume
+    </a>
   </div>
   <button 
     v-if="navigationStore.isMobile"
@@ -31,19 +30,19 @@
 <script setup lang="ts">
 import { ref, computed, Ref } from 'vue'
 import { navigationStore } from '../stores/navigation-store'
-import svgString from '../assets/logo-name.svg?raw'
 import SVGRenderer from './SVGRenderer.vue'
 import Footer from './Footer.vue'
+import svgString from '../assets/logo-name.svg?raw'
+import pdf from '../assets/CS_Resume_07-11-2022.docx.pdf?url'
 
 const isOpen: Ref<boolean> = ref(false)
 
-const clickHandler = (event:Event) => {
+const clickHandler = (event:Event) : void => {
   isOpen.value = !isOpen.value
 }
 
 const logo = computed(() => ({
-  'py-8': true,
-  'w-full': navigationStore.isMobile && isOpen.value
+  'mr-auto py-8': true
 }))
 
 const navBar = computed(() : object => ({

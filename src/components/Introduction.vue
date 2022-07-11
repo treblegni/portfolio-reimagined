@@ -1,5 +1,5 @@
 <template>
-<div class="grid grid-flow-row gap-8">
+<div class="grid grid-flow-row gap-8 w-full">
   <div class="grid grid-flow-row gap-8">
     <p class="sub-title">Hello! My Name's</p>
     <p class="main-title text-green-slime">Ingelbert Figueroa</p>
@@ -23,6 +23,7 @@ import {navigationStore} from '../stores/navigation-store'
 
 const instructions = computed(() =>({
   'opacity-100': navigationStore.homeVisited,
-  'action-button-text opacity-0': true
+  'opacity-0': !navigationStore.homeVisited,
+  'action-button-text': true
 }))
 </script>

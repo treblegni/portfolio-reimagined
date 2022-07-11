@@ -55,5 +55,5 @@ body {
 .action-button {
   font-family: 'Source Code Pro',monospace;
   font-weight: 700;
-  @apply text-xs leading-3 border-2 p-4 rounded-lg;
+  @apply text-xs leading-3 border-2 p-4 rounded-lg border-cream;
 }

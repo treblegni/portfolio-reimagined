@@ -9,6 +9,9 @@ A simple website meant to showcase my skills, experience, and projects. All desi
 - TailwindCSS
 - Anime.JS
 
+## Hosting Services
+- Heroku
+
 ## Mock Up
 ![Specs](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Design-Specifications.png?raw=true)
 ![Landing Page](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Landing-Page.png?raw=true)

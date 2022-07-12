@@ -11,7 +11,7 @@ A simple website meant to showcase my skills, experience, and projects. All desi
 
 ## Hosting Services
 - Heroku
-- Config: npm config pro to false
+- Config: heroku config:set NPM_CONFIG_PRODUCTION=false
 
 ## Mock Up
 ![Specs](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Design-Specifications.png?raw=true)

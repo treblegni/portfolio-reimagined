@@ -8,11 +8,11 @@ module.exports = {
     extend: {
       colors: {
         'green-slime': '#7EAE54',
-        'green-gray-dark': '#30423E',
-        'green-gray-medium': '#3E514D',
-        'green-gray-regular': '#506460',
-        'green-gray-light': '#6A8082',
-        'cream': '#D7DBD3'
+        'green-gray-dark': '#304238',
+        'green-gray-medium': '#3E5146',
+        'green-gray-regular': '#506455',
+        'green-gray-light': '#5F8175',
+        'cream': '#D8DCCC'
       }
     },
   },

@@ -1,28 +1,59 @@
-#app {
-  /* font-family: 'Source Code Pro','Inter' monospace, sans-serif; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
   color: #D7DBD3;
   background-color: #30423E;
+}
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
   height: 100vh;
 }
 
-.title-bolder {
+.main-title {
   font-family: 'Source Code Pro',monospace;
   font-weight: 700;
+  @apply text-5xl;
 }
 
-.title-bold {
+.secondary-title {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 700;
+  @apply text-2xl;
+}
+
+.sub-title {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 0.75rem !important
+}
+
+.content-title {
   font-family: 'Source Code Pro',monospace;
   font-weight: 600;
 }
 
-.title-semibold {
-  font-family: 'Source Code Pro',monospace;
-  font-weight: 500;
+.content-text {
+  font-family: 'Inter',sans-serif;
+  font-weight: 400;
+  @apply text-sm;
 }
 
-.title-regular {
+.tab {
   font-family: 'Source Code Pro',monospace;
-  font-weight: 400;
+  font-weight: 500;
+  @apply text-sm;
+}
+
+.action-button-text {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 700;
+  @apply text-xs leading-3;
+}
+
+.action-button {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 700;
+  @apply text-xs leading-3 border-2 p-4 rounded-lg border-cream;
 }

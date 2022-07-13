@@ -1,28 +1,29 @@
 <template>
-<div class="grid grid-flow-row gap-8">
+<div class="grid grid-flow-row gap-8 w-full">
   <div class="grid grid-flow-row gap-8">
-    <p class="title-bold text-md leading-3">Hello! My Name's</p>
-    <p class="title-bolder text-6xl text-green-slime leading-10">Ingelbert Figueroa</p>
-    <p class="title-semibold text-sm leading-3">Jr. Web Developer and UI/UX Enthusiast</p>
+    <p class="sub-title">Hello! My Name's</p>
+    <p class="main-title text-green-slime">Ingelbert Figueroa</p>
+    <p class="tab">Jr. Web Developer and UI/UX Enthusiast</p>
   </div>
-  <div>
-    <button class="title-bold text-xs border-2 hover:border-green-slime p-4 rounded-lg hover:text-green-slime">Learn More</button>
+  <div class="relative">
+    <button
+      v-show="!navigationStore.homeVisited"
+      class="absolute z-10 action-button hover:border-green-slime hover:text-green-slime top-0"
+      @click="navigationStore.updateHomeVisited">Learn More</button>
+    <p :class="instructions">
+      <span class="text-green-slime">Scroll</span> Down or Use the <span class="text-green-slime">Navigation</span>
+    </p>
   </div>
 </div>
 </template>
 
 <script setup lang="ts">
-import { computed,onMounted } from 'vue'
+import { computed } from 'vue'
+import {navigationStore} from '../stores/navigation-store'
 
-const nav = computed(() =>({
-  'flex justify-between items-center h-20': true
-}))
-
-const navButton = computed(() => ({
-  'title-bold hover:text-green-slime': true
-}))
-
-const navButtonContainer = computed(() =>({
-  'grid grid-cols-3': true
+const instructions = computed(() =>({
+  'opacity-100': navigationStore.homeVisited,
+  'opacity-0': !navigationStore.homeVisited,
+  'action-button-text': true
 }))
 </script>

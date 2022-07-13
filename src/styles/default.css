@@ -10,6 +10,22 @@ body {
   height: 100vh;
 }
 
+.bold-code {
+  font-weight: 700;
+}
+
+.semi-bold-code {
+  font-weight: 600;
+}
+
+.regular-code {
+  font-weight: 500;
+}
+
+.light-cold {
+  font-weight: 400;
+}
+
 .main-title {
   font-family: 'Source Code Pro',monospace;
   font-weight: 700;

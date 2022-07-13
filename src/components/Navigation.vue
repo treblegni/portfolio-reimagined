@@ -2,7 +2,7 @@
 <nav :class="navBar">
   <div :class="logo">
     <a href="#intro" class="cursor-pointer">
-      <SVGRenderer 
+      <SVGRenderer
         :svg-string="svgString"
         class="h-10"></SVGRenderer>
     </a>
@@ -20,22 +20,29 @@
   </div>
   <button 
     v-if="navigationStore.isMobile"
-    class="tab absolute z-10 right-0 top-0 mt-10 mr-10"
-    @click="clickHandler">{{isOpen ? 'Close':'Open'}}
+    class="tab absolute z-10 right-0 h-10 w-10 top-0 mt-8 mr-6"
+    @click="clickHandler">
+    <i v-show="!isOpen" class="w-full fa-solid fa-bars"></i>
+    <i v-show="isOpen" class=" w-full fa-solid fa-xmark"></i>
   </button>
   <Footer v-if="navigationStore.homeVisited && isOpen" class="mt-auto"></Footer>
 </nav>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, Ref } from 'vue'
+import { ref, computed, watch, Ref } from 'vue'
 import { navigationStore } from '../stores/navigation-store'
 import SVGRenderer from './SVGRenderer.vue'
 import Footer from './Footer.vue'
 import svgString from '../assets/logo-name.svg?raw'
-import pdf from '../assets/CS_Resume_07-11-2022.docx.pdf?url'
+import pdf from '../assets/CS_Resume_07-13-2022.docx.pdf?url'
 
 const isOpen: Ref<boolean> = ref(false)
+
+if (!navigationStore.isMobile) {
+  console.log('changed')
+  isOpen.value = false
+}
 
 const clickHandler = (event:Event) : void => {
   isOpen.value = !isOpen.value

@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col items-center py-8">
-  <div class="grid grid-flow-row gap-2 relative mb-4">
+  <div class="grid grid-flow-row gap-2 relative mb-2">
     <p :class="footer">Designed & Built<br v-if="navigationStore.isMobile"> by <br v-if="navigationStore.isMobile"><span class="sub-title text-green-slime">Ingelbert Figueroa</span></p>
   </div>
   <div class="grid grid-flow-col gap-4">

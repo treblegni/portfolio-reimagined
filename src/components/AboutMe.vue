@@ -8,7 +8,7 @@
     </div>
     <div class="grid grid-flow-row gap-8">
       <p class="content-text max-w-sm ml-auto mr-auto">I’m a Computer Science graduate<br> working for a consulting firm that speciallizes in developing solutions for clients that help them manage their digital content.</p>
-      <p class="content-text max-w-sm ml-auto mr-auto">My focus is in creating Frontend implementations<br> that incorporate best practices and modern technologies to deliver meaningful and engaging web experiences that are easy to navigate.</p>
+      <p class="content-text max-w-sm ml-auto mr-auto">My focus is in creating Frontend implementations<br> that incorporate best practices and modern technologies to deliver meaningful and engaging web experiences and are easy to navigate.</p>
     </div>
   </div>
   <div class="grid grid-flow-row gap-8">

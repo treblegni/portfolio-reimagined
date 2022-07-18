@@ -10,8 +10,10 @@ A simple website meant to showcase my skills, experience, and projects. All desi
 - Anime.JS
 
 ## Hosting Services
-- Heroku
-- Config: heroku config:set NPM_CONFIG_PRODUCTION=false
+- Vercel
+
+## Backend
+- Express.JS
 
 ## Mock Up
 ![Design Specs](https://github.com/treblegni/portfolio-reimagined/blob/main/design/Design-Specifications.png?raw=true)

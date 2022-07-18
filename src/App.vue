@@ -23,37 +23,35 @@ import Navigation from './components/Navigation.vue';
 
 const navBar:Ref<HTMLElement | null> = ref(null)
 let scrollPosition:Number = 0
+let animated:Boolean = false
 
 const navigationScrollEffect = () => {
   const app = document.querySelector('div#app')
   app?.addEventListener('scroll',(e) => {
     const nav = app.querySelector('nav')
     
-    if (app.scrollTop <= nav.offsetHeight) {
-      // anime({
-      //   targets: nav,
-      //   translateY: `-${app.scrollTop}px`
-      // })
+    if (app.scrollTop <= nav.offsetHeight && !animated) {
       nav.style.transform = `translateY(-${app.scrollTop}px)`
     }
     else {
       let translationY = nav.style.transform.split('(')[1].split(')')[0]
-      // console.log(transform)
       if (app.scrollTop > scrollPosition) {
-        if (parseInt(translationY) == 0) {
+        if (animated) {
           anime({
             targets: nav,
             translateY: `-${nav.offsetHeight}px`
           })
         }
+        nav.style.transform = `translateY(-${nav.offsetHeight}px)`
+        animated = false
       }
       else {
-        if (parseInt(translationY) > 0) {
-          // console.log('scrolling down',translationY)
+        if (parseInt(translationY) == -(nav.offsetHeight)) {
           anime({
             targets: nav,
-            translateY: '0px'
+            translateY: `0px`
           })
+          animated = true
         }
       }
     }

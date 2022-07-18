@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="flex justify-center">
-    <a href="mailto:ingelbert.figueroa@gmail.com" class="action-button hover:border-green-slime hover:text-green-slime">Message Me</a>
+    <a href="mailto:ingelbert.figueroa@gmail.com" class="action-button hover:border-green-slime hover:text-green-slime duration-100">Message Me</a>
   </div>
 </div>
 </template>

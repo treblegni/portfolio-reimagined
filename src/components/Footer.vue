@@ -6,14 +6,14 @@
   <div class="grid grid-flow-col gap-4">
     <div class="flex items-center">
       <SVGRenderer
-        :svg-string="eyeSVGString"
-        class="social-icon h-6 w-auto"></SVGRenderer>
+        :svg="eyeSVGString"
+        class="social-icon h-6 w-auto fill-current text-cream"></SVGRenderer>
       <span class="tab">Watch Count</span>
     </div>
     <div class="flex items-center">
       <SVGRenderer
-        :svg-string="starSVGString"
-        class="social-icon h-6 w-auto"></SVGRenderer>
+        :svg="starSVGString"
+        class="social-icon h-6 w-auto fill-current text-cream"></SVGRenderer>
       <span class="tab">Star count</span>
     </div>
   </div>

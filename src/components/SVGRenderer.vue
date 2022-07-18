@@ -1,37 +1,87 @@
 <template>
-<div 
-	ref="svgContainer"
-	:class="containerClasses">
-</div>
+<svg
+	ref="svgDOM"
+	@click="$emit('click')">
+</svg>
 </template>
 
 <script lang="ts" setup>
 import { ref,computed,onMounted } from 'vue'
+
 const
 	props = defineProps({
-		'svgString':String
+		'svg':String,
+    'url':String,
+    'asIs':Boolean
 	}),
-	svgContainer = ref<HTMLElement | null>(null)
+	svgDOM = ref<SVGElement | null>(null)
+
+const generateSVG = (data:string,dom:SVGElement|null) : SVGElement|null => {
+  const
+    parser = new DOMParser(),
+    doc = parser.parseFromString(data,'image/svg+xml'),
+    svg = doc.querySelector('svg'),
+    paths = svg?.querySelectorAll('path'),
+    masks = svg?.querySelectorAll('mask')
+  
+  if (!props.asIs) {
+    if (paths) {
+      paths.forEach(path => {
+        path.removeAttribute('stroke')
+        path.removeAttribute('fill')
+      })
+    }
+    if (masks) {
+      masks.forEach(mask => {
+        mask.removeAttribute('x')
+        mask.removeAttribute('y')
+        mask.removeAttribute('width')
+        mask.removeAttribute('height')
+      })
+    }
+  }
+  if (svg) {
+    svg.removeAttribute('fill')
+    svg.removeAttribute('height')
+    svg.removeAttribute('width')
+    
+    const classes = dom?.classList
+    if (classes) {
+      classes.forEach((c:string) => {
+        svg.classList.add(c)
+      })
+    }
+    // svg.addEventListener('click',() => {
+    //   this.$emit('click')
+    // })
+    return svg
+  }
+  return null
+}
 
 const	renderSVG = () => {
-	if (props.svgString && svgContainer.value) {
-		svgContainer.value.innerHTML = props.svgString
-		const svg = svgContainer.value.querySelector('svg')
+	if (props.svg) {
+    const svg:SVGElement|null = generateSVG(props.svg,svgDOM.value)
     if (svg) {
-      const path = svg.querySelector('path')
-      if (path) {
-        svg.removeAttribute('height')
-        svg.setAttribute('width','auto')
-        svg.setAttribute('id','svg-render')
-      }
+      svgDOM.value?.replaceWith(svg)
     }
 	}
+  else if (props.url && svgDOM.value)
+  fetch(props.url)
+    .then(response => response.text())
+    .then(data => {
+      if (data.startsWith('<svg')) {
+        const svg:SVGElement|null = generateSVG(data,svgDOM.value)
+        if (svg) {
+          svgDOM.value?.replaceWith(svg)
+        }
+      }
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
-const containerClasses = computed(() => {
-	return {
-		'flex justify-center align-center': true
-	}
-})
+
 onMounted(() => {
 	renderSVG()
 })

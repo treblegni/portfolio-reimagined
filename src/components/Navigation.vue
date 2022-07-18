@@ -3,8 +3,8 @@
   <div :class="logo">
     <a href="#intro" class="cursor-pointer">
       <SVGRenderer
-        :svg-string="svgString"
-        class="h-10"></SVGRenderer>
+        :svg="svgString"
+        class="h-10 fill-current text-cream"></SVGRenderer>
     </a>
   </div>
   <div :class="buttonContainer">
@@ -14,7 +14,7 @@
     <a href="#contact" :class="navButton">
       Message Me
     </a>
-    <a :href="pdf" target="_blank" class="action-button hover:text-green-slime hover:border-green-slime cursor-pointer">
+    <a :href="pdf" target="_blank" class="action-button hover:text-green-slime hover:border-green-slime cursor-pointer duration-100">
       Resume
     </a>
   </div>
@@ -66,6 +66,6 @@ const buttonContainer = computed(() : object => ({
 }))
 
 const navButton = computed(() : object => ({
-  'tab hover:text-green-slime': true
+  'tab hover:text-green-slime duration-100': true
 }))
 </script>

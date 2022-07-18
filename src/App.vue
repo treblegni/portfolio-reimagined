@@ -22,29 +22,42 @@ import Footer from './components/Footer.vue';
 import Navigation from './components/Navigation.vue';
 
 const navBar:Ref<HTMLElement | null> = ref(null)
-
-const hideNav = () => {
-  anime({
-    targets: 'nav',
-    translateY: '800px'
-  })
-}
-
-const showNav = () => {
-
-}
+let scrollPosition:Number = 0
 
 const navigationScrollEffect = () => {
   const app = document.querySelector('div#app')
-  app?.addEventListener('scroll',() => {
+  app?.addEventListener('scroll',(e) => {
     const nav = app.querySelector('nav')
     
     if (app.scrollTop <= nav.offsetHeight) {
-      nav.style.top = `-${app.scrollTop}px`
+      // anime({
+      //   targets: nav,
+      //   translateY: `-${app.scrollTop}px`
+      // })
+      nav.style.transform = `translateY(-${app.scrollTop}px)`
     }
     else {
-      console.log('else')
+      let translationY = nav.style.transform.split('(')[1].split(')')[0]
+      // console.log(transform)
+      if (app.scrollTop > scrollPosition) {
+        if (parseInt(translationY) == 0) {
+          anime({
+            targets: nav,
+            translateY: `-${nav.offsetHeight}px`
+          })
+        }
+      }
+      else {
+        if (parseInt(translationY) > 0) {
+          // console.log('scrolling down',translationY)
+          anime({
+            targets: nav,
+            translateY: '0px'
+          })
+        }
+      }
     }
+    scrollPosition = app.scrollTop
   })
 }
 

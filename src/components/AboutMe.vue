@@ -102,7 +102,7 @@ import anime from 'animejs'
 import {navigationStore} from '../stores/navigation-store'
 import SVGRenderer from './SVGRenderer.vue'
 
-const scaleUp = (e) => {
+const scaleUp = (e:MouseEvent) => {
   let svg = e.target.querySelector('svg')
   if (!svg) {
     svg = e.target.closest('div').querySelector('svg')
@@ -114,7 +114,7 @@ const scaleUp = (e) => {
     // rotate: '1turn'
   })
 }
-const scaleDown = (e) => {
+const scaleDown = (e:MouseEvent) => {
   let svg = e.target.querySelector('svg')
   if (!svg) {
     svg = e.target.closest('div').querySelector('svg')

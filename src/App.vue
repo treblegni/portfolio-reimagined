@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import anime from 'animejs/lib/anime.es.js'
+import anime from 'animejs'
 import { ref,Ref,onMounted } from 'vue'
 import { navigationStore } from './stores/navigation-store'
 import { mobileStateHandler } from './utils/helper-functions'
@@ -27,35 +27,37 @@ let animated:Boolean = false
 
 const navigationScrollEffect = () => {
   const app = document.querySelector('div#app')
-  app?.addEventListener('scroll',(e) => {
-    const nav = app.querySelector('nav')
+  app?.addEventListener('scroll',() => {
+    const nav:HTMLElement|null = app.querySelector('nav')
     
-    if (app.scrollTop <= nav.offsetHeight && !animated) {
-      nav.style.transform = `translateY(-${app.scrollTop}px)`
-    }
-    else {
-      let translationY = nav.style.transform.split('(')[1].split(')')[0]
-      if (app.scrollTop > scrollPosition) {
-        if (animated) {
-          anime({
-            targets: nav,
-            translateY: `-${nav.offsetHeight}px`
-          })
-        }
-        nav.style.transform = `translateY(-${nav.offsetHeight}px)`
-        animated = false
+    if (nav) {
+      if (app.scrollTop <= nav.offsetHeight && !animated) {
+        nav.style.transform = `translateY(-${app.scrollTop}px)`
       }
       else {
-        if (parseInt(translationY) == -(nav.offsetHeight)) {
-          anime({
-            targets: nav,
-            translateY: `0px`
-          })
-          animated = true
+        let translationY = nav.style.transform.split('(')[1].split(')')[0]
+        if (app.scrollTop > scrollPosition) {
+          if (animated) {
+            anime({
+              targets: nav,
+              translateY: `-${nav.offsetHeight}px`
+            })
+          }
+          nav.style.transform = `translateY(-${nav.offsetHeight}px)`
+          animated = false
+        }
+        else {
+          if (parseInt(translationY) == -(nav.offsetHeight)) {
+            anime({
+              targets: nav,
+              translateY: `0px`
+            })
+            animated = true
+          }
         }
       }
-    }
-    scrollPosition = app.scrollTop
+      scrollPosition = app.scrollTop
+    } 
   })
 }
 

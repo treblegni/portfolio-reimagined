@@ -98,7 +98,7 @@ import ts from '../assets/typescript.svg?raw'
 import vite from '../assets/vite.svg?raw'
 import vue from '../assets/vue.svg?raw'
 import eventstore from '../assets/eventstore.svg?raw'
-import anime from 'animejs/lib/anime.es.js'
+import anime from 'animejs'
 import {navigationStore} from '../stores/navigation-store'
 import SVGRenderer from './SVGRenderer.vue'
 

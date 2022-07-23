@@ -18,68 +18,70 @@
     </div>
     <div class="grid grid-flow-row gap-8">
       <p class="content-text">I’ve used many tools and technologies to develop web applications. Here are some I currently focus on:</p>
-      <div class="flex justify-center">
-        <div class="grid grid-flow-col gap-4">
+      <div class="flex justify-center items-center">
+        <div class="flex flex-wrap justify-center -m-2">
           <div
-            class="relative h-12"
+            :class="svgContainerClasses"
             @mouseover="scaleUp"
             @mouseleave="scaleDown">
             <SVGRenderer
               id="viteSVG"
-              class="h-full"
+              :class="svgClasses"
               :svg="vite"
               :asIs="true">
             </SVGRenderer>
           </div>
           <div
-            class="relative h-12"
+            :class="svgContainerClasses"
             @mouseover="scaleUp"
             @mouseleave="scaleDown">
             <SVGRenderer
               id="vueSVG"
-              class="h-full"
+              :class="svgClasses"
               :svg="vue"
               :asIs="true">
             </SVGRenderer>
           </div>
           <div
-            class="relative h-12"
+            :class="svgContainerClasses"
             @mouseover="scaleUp"
             @mouseleave="scaleDown">
             <SVGRenderer
               id="nodeSVG"
-              class="h-full"
+              :class="svgClasses"
               :svg="node"
               :asIs="true">
             </SVGRenderer>
           </div>
-          <div 
-            class="relative h-12"
+          <div
+            :class="svgContainerClasses"
             @mouseover="scaleUp"
             @mouseleave="scaleDown">
             <SVGRenderer
               id="tsSVG"
-              class="h-full"
+              :class="svgClasses"
               :svg="ts"
               :asIs="true">
             </SVGRenderer>
           </div>
-          <div class="relative h-12"
+          <div
+            :class="svgContainerClasses"
             @mouseover="scaleUp"
             @mouseleave="scaleDown">
             <SVGRenderer
               id="tailwindSVG"
-              class="h-full"
+              :class="svgClasses"
               :svg="tailwind"
               :asIs="true">
             </SVGRenderer>
           </div>
-          <div class="relative h-12"
+          <div
+            :class="svgContainerClasses"
             @mouseover="scaleUp"
             @mouseleave="scaleDown">
             <SVGRenderer
               id="eventstoreSVG"
-              class="h-full"
+              :class="svgClasses"
               :svg="eventstore"
               :asIs="true">
             </SVGRenderer>
@@ -92,6 +94,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import node from '../assets/node.svg?raw'
 import tailwind from '../assets/tailwind.svg?raw'
 import ts from '../assets/typescript.svg?raw'
@@ -99,7 +102,6 @@ import vite from '../assets/vite.svg?raw'
 import vue from '../assets/vue.svg?raw'
 import eventstore from '../assets/eventstore.svg?raw'
 import anime from 'animejs'
-import {navigationStore} from '../stores/navigation-store'
 import SVGRenderer from './SVGRenderer.vue'
 
 const scaleUp = (e:any) => {
@@ -132,4 +134,12 @@ const scaleDown = (e:any) => {
     })
   }
 }
+
+const svgContainerClasses = computed(() => ({
+  'h-12 m-2': true
+}))
+
+const svgClasses = computed(() => ({
+  'h-full': true
+}))
 </script>

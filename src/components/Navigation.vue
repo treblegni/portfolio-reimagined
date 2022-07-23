@@ -40,7 +40,6 @@ import pdf from '../assets/CS_Resume_07-13-2022.docx.pdf?url'
 const isOpen: Ref<boolean> = ref(false)
 
 if (!navigationStore.isMobile) {
-  console.log('changed')
   isOpen.value = false
 }
 

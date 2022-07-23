@@ -1,6 +1,5 @@
 body {
-  color: #D7DBD3;
-  background-color: #30423E;
+  @apply bg-green-gray-dark text-cream;
 }
 
 #app {

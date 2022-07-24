@@ -32,7 +32,6 @@ const navigationScrollEffect = () => {
     const nav:HTMLElement|null = app.querySelector('nav')
     
     if (nav) {
-      console.log(nav.offsetHeight,nav.clientHeight,getComputedStyle(nav).height)
       if (app.scrollTop <= nav.offsetHeight && !animated) {
         nav.style.transform = `translateY(-${app.scrollTop}px)`
       }
@@ -44,7 +43,6 @@ const navigationScrollEffect = () => {
                 targets: nav,
                 translateY: `-${nav.offsetHeight}px`
               })
-              // nav.style.boxShadow = '0px 0px 5px black'
               nav.classList.add('shadow-md')
               nav.style.transition = 'box-shadow 0.2s ease-out'
               closed = true
@@ -57,7 +55,12 @@ const navigationScrollEffect = () => {
             if (closed) {
               anime({
                 targets: nav,
-                translateY: `0px`
+                translateY: `0px`,
+                complete: () => {
+                  if (app.scrollTop == 0) {
+                    anime.remove(nav)
+                  }
+                }
               })
               closed = false
               animated = true
@@ -65,9 +68,7 @@ const navigationScrollEffect = () => {
           }
           else {
             if (app.scrollTop == 0) {
-              anime.remove(nav)
               nav.classList.remove('shadow-md')
-              // nav.style.boxShadow = '0px 0px 0px black'
               animated = false
             }
           }

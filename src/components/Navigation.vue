@@ -6,8 +6,8 @@
       </a>
     </div>
     <div :class="buttonContainer">
-      <a href="#about" :class="navButton"> About </a>
-      <a href="#contact" :class="navButton"> Message Me </a>
+      <a href="#about" :class="navButton" @click="handleNavigation"> About </a>
+      <a href="#contact" :class="navButton" @click="handleNavigation"> Message Me </a>
       <a
         :href="pdf"
         target="_blank"
@@ -47,6 +47,10 @@ const isOpen: Ref<boolean> = ref(false);
 
 if (!navigationStore.isMobile) {
   isOpen.value = false;
+}
+
+const handleNavigation = ():void => {
+  isOpen.value = false
 }
 
 const clickHandler = (event: Event): void => {

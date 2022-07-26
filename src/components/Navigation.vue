@@ -19,8 +19,7 @@
     <button
       v-if="navigationStore.isMobile"
       class="tab absolute flex items-center justify-center z-10 right-0 h-10 w-10 top-0 mt-8 mr-6"
-      @click="clickHandler"
-    >
+      @click="clickHandler">
       <div class="flex flex-col justify-center items-center relative h-4 w-4">
         <div id="line-one" :class="lineOne"></div>
         <div id="line-two" :class="lineTwo"></div>
@@ -35,13 +34,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, Ref } from "vue";
-import { navigationStore } from "../stores/navigation-store";
-import anime from "animejs";
-import SVGRenderer from "./SVGRenderer.vue";
-import Footer from "./Footer.vue";
-import svgString from "../assets/logo-name.svg?raw";
-import pdf from "../assets/CS_Resume_07-13-2022.docx.pdf?url";
+import { ref, computed, Ref } from "vue"
+import { navigationStore } from "../stores/navigation-store"
+import anime from "animejs"
+import SVGRenderer from "./SVGRenderer.vue"
+import Footer from "./Footer.vue"
+import svgString from "../assets/logo-name.svg?raw"
+import pdf from "../assets/CS_Resume_07-13-2022.docx.pdf?url"
 
 const isOpen: Ref<boolean> = ref(false);
 

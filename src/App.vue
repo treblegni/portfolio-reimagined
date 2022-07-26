@@ -10,6 +10,12 @@
     <router-view></router-view>
   </div>
 </div>
+<transition>
+  <SocialBadges
+    v-if="navigationStore.homeVisited && !navigationStore.isMobile"
+    class="fixed ml-10 mb-8 bottom-0 left-0">
+  </SocialBadges>
+</transition>
 <Footer v-if="navigationStore.homeVisited"></Footer>
 </template>
 
@@ -18,8 +24,9 @@ import anime from 'animejs'
 import { ref,Ref,onMounted } from 'vue'
 import { navigationStore } from './stores/navigation-store'
 import { mobileStateHandler } from './utils/helper-functions'
-import Footer from './components/Footer.vue';
-import Navigation from './components/Navigation.vue';
+import Footer from './components/Footer.vue'
+import Navigation from './components/Navigation.vue'
+import SocialBadges from './components/SocialBadges.vue'
 
 const navBar:Ref<HTMLElement | null> = ref(null)
 let scrollPosition:Number = 0
@@ -43,7 +50,7 @@ const navigationScrollEffect = () => {
                 targets: nav,
                 translateY: `-${nav.offsetHeight}px`
               })
-              nav.classList.add('shadow-md')
+              nav.classList.add('shadow-lg')
               nav.style.transition = 'box-shadow 0.2s ease-out'
               closed = true
               animated = true
@@ -68,7 +75,7 @@ const navigationScrollEffect = () => {
           }
           else {
             if (app.scrollTop == 0) {
-              nav.classList.remove('shadow-md')
+              nav.classList.remove('shadow-lg')
               animated = false
             }
           }

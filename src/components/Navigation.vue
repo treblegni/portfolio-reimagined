@@ -49,14 +49,8 @@ if (!navigationStore.isMobile) {
   isOpen.value = false;
 }
 
-const handleNavigation = ():void => {
-  isOpen.value = false
-}
-
-const clickHandler = (event: Event): void => {
-  isOpen.value = !isOpen.value;
-
-  if (isOpen.value) {
+const animateHamburger = (state:Boolean):void => {
+  if (state) {
     anime({
       targets: "div#line-one",
       rotate: "45deg",
@@ -89,6 +83,18 @@ const clickHandler = (event: Event): void => {
       translateX: "0",
     });
   }
+}
+
+const handleNavigation = ():void => {
+  isOpen.value = false
+
+  animateHamburger(false)
+}
+
+const clickHandler = (event: Event): void => {
+  isOpen.value = !isOpen.value;
+
+  animateHamburger(isOpen.value)
 };
 
 const logo = computed(() => ({

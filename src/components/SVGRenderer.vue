@@ -25,23 +25,27 @@ const generateSVG = (data:string,dom:SVGElement|null) : SVGElement|null => {
     masks = svg?.querySelectorAll('mask')
   
   if (!props.asIs) {
-    if (paths) {
-      paths.forEach(path => {
-        path.removeAttribute('stroke')
-        path.removeAttribute('fill')
-      })
-    }
-    if (masks) {
-      masks.forEach(mask => {
-        mask.removeAttribute('x')
-        mask.removeAttribute('y')
-        mask.removeAttribute('width')
-        mask.removeAttribute('height')
-      })
+    if (svg) {
+      if (paths) {
+        paths.forEach(path => {
+          path.removeAttribute('stroke')
+          path.removeAttribute('fill')
+        })
+      }
+      if (masks) {
+        masks.forEach(mask => {
+          mask.removeAttribute('x')
+          mask.removeAttribute('y')
+          mask.removeAttribute('width')
+          mask.removeAttribute('height')
+        })
+      }
     }
   }
   if (svg) {
-    svg.removeAttribute('fill')
+    if (!props.asIs) {
+      svg.removeAttribute('fill')
+    }
     svg.removeAttribute('height')
     svg.removeAttribute('width')
     

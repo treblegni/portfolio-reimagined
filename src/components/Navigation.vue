@@ -2,7 +2,7 @@
   <nav :class="navBar">
     <div :class="logo">
       <a href="#intro" class="cursor-pointer">
-        <SVGRenderer :svg="svgString" class="h-10 fill-current text-cream"></SVGRenderer>
+        <SVGRenderer :as-is="true" :svg="svgString" class="h-10"></SVGRenderer>
       </a>
     </div>
     <div :class="buttonContainer">

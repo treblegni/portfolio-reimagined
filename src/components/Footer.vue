@@ -42,5 +42,7 @@ onMounted(async () => {
 
   watchCount.value = repo.watchers_count
   starCount.value = repo.stargazers_count
+
+  console.log(repo)
 })
 </script>

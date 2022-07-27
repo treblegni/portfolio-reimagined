@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Repo from '../interfaces/Repo';
 import { navigationStore } from '../stores/navigation-store';
 
 const endpoint = '/api/get-repo'
@@ -23,15 +24,15 @@ export const mobileStateHandler = () : void => {
   })
 }
 
-export const getRepo = () : Number => {
+export const getRepo = () : Repo => {
   axios({
     method: 'GET',
     url: `${endpoint}?user=${user}&repo=${repo}`
   })
   .then(res => res.data)
   .then(data => {
-    return data
+    return {watchers_count: data.watchers_count,stargazers_count: data.stargazers_count}
   })
   .catch(err => console.log(err))
-  return 0
+  return {watchers_count: 0,stargazers_count: 0}
 }

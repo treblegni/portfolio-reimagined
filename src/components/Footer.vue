@@ -8,13 +8,13 @@
       <SVGRenderer
         :svg="eyeSVGString"
         class="social-icon h-6 w-auto fill-current text-cream"></SVGRenderer>
-      <span class="tab" v-text="watchCount"></span>
+      <span class="ml-2 tab" v-text="watchCount"></span>
     </div>
     <div class="flex items-center">
       <SVGRenderer
         :svg="starSVGString"
         class="social-icon h-6 w-auto fill-current text-cream"></SVGRenderer>
-      <span class="tab" v-text="starCount"></span>
+      <span class="ml-2 tab" v-text="starCount"></span>
     </div>
   </div>
 </div>
@@ -23,6 +23,7 @@
 <script setup lang="ts">
 import { ref,computed,onMounted,Ref } from 'vue'
 import { navigationStore } from '../stores/navigation-store'
+import Repo from '../interfaces/Repo'
 import { getRepo } from '../utils/helper-functions'
 import SVGRenderer from './SVGRenderer.vue'
 import eyeSVGString from '../assets/iconmonstr-eye-lined.svg?raw'
@@ -36,7 +37,10 @@ const footer = computed(() => ({
   'tab': true
 }))
 
-onMounted(() => {
-  console.log(getRepo())
+onMounted(async () => {
+  const repo:Repo = await getRepo()
+
+  watchCount.value = repo.watchers_count
+  starCount.value = repo.stargazers_count
 })
 </script>

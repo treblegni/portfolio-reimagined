@@ -24,8 +24,8 @@ export const mobileStateHandler = () : void => {
   })
 }
 
-export const getRepo = () : Repo => {
-  axios({
+export const getRepo = () : any => {
+  return axios({
     method: 'GET',
     url: `${endpoint}?user=${user}&repo=${repo}`
   })
@@ -33,6 +33,4 @@ export const getRepo = () : Repo => {
   .then(data => {
     return {watchers_count: data.watchers_count,stargazers_count: data.stargazers_count}
   })
-  .catch(err => console.log(err))
-  return {watchers_count: 0,stargazers_count: 0}
 }

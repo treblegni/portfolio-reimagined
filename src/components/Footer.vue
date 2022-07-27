@@ -40,9 +40,12 @@ const footer = computed(() => ({
 onMounted(async () => {
   const repo:Repo = await getRepo()
 
-  watchCount.value = repo.watchers_count
-  starCount.value = repo.stargazers_count
+  if (repo) {
+    watchCount.value = repo.watchers_count
+    starCount.value = repo.stargazers_count
+  
+    console.log(repo)
+  }
 
-  console.log(repo)
 })
 </script>

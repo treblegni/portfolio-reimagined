@@ -5,15 +5,19 @@
   </div>
   <div class="grid grid-flow-col gap-4">
     <div class="flex items-center">
-      <SVGRenderer
-        :svg="eyeSVGString"
-        class="social-icon h-6 w-auto fill-current text-cream"></SVGRenderer>
+      <a href="https://github.com/treblegni/portfolio-reimagined">
+        <SVGRenderer
+          :svg="eyeSVGString"
+          class="social-icon h-6 w-auto fill-current text-cream"></SVGRenderer>
+      </a>
       <span class="ml-2 tab" v-text="watchCount"></span>
     </div>
     <div class="flex items-center">
-      <SVGRenderer
-        :svg="starSVGString"
-        class="social-icon h-6 w-auto fill-current text-cream"></SVGRenderer>
+      <a href="https://github.com/treblegni/portfolio-reimagined">
+        <SVGRenderer
+          :svg="starSVGString"
+          class="social-icon h-6 w-auto fill-current text-cream"></SVGRenderer>
+      </a>
       <span class="ml-2 tab" v-text="starCount"></span>
     </div>
   </div>
@@ -43,9 +47,6 @@ onMounted(async () => {
   if (repo) {
     watchCount.value = repo.watchers_count
     starCount.value = repo.stargazers_count
-  
-    console.log(repo)
   }
-
 })
 </script>

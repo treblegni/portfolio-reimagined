@@ -7,7 +7,7 @@
       <div :class="headerBorder"></div>
     </div>
     <div class="grid grid-flow-row gap-8">
-      <p class="content-text max-w-sm ml-auto mr-auto">I’m currently looking for opportunities<br>to advanced in my career. Send me a message if you are interested in my wor or feel free to provide feedback.<br>Any messages or feedback are appreciated.</p>
+      <p class="content-text max-w-sm ml-auto mr-auto">I’m currently looking for opportunities<br>to advanced in my career. Send me a message if you are interested in my work or feel free to provide feedback.<br>Any messages or feedback are appreciated.</p>
     </div>
   </div>
   <div class="flex justify-center">

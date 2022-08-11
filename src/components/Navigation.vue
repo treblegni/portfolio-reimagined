@@ -1,35 +1,41 @@
 <template>
   <nav :class="navBar">
-    <div :class="logo">
-      <a href="#intro" class="cursor-pointer">
-        <SVGRenderer :as-is="true" :svg="svgString" class="h-10"></SVGRenderer>
-      </a>
-    </div>
-    <div :class="buttonContainer">
-      <a href="#about" :class="navButton" @click="handleNavigation">About</a>
-      <a href="#experience" :class="navButton" @click="handleNavigation">Experience</a>
-      <a href="#contact" :class="navButton" @click="handleNavigation">Message Me</a>
-      <a
-        :href="pdf"
-        target="_blank"
-        class="action-button hover:text-green-slime hover:border-green-slime cursor-pointer duration-100"
-      >
-        Resume
-      </a>
-    </div>
-    <button
-      v-if="navigationStore.isMobile"
-      class="tab absolute flex items-center justify-center z-10 right-0 h-10 w-10 top-0 mt-8 mr-6"
-      @click="clickHandler">
-      <div class="flex flex-col justify-center items-center relative h-4 w-4">
-        <div id="line-one" :class="lineOne"></div>
-        <div id="line-two" :class="lineTwo"></div>
-        <div id="line-three" :class="lineThree"></div>
+    <div class="flex flex-col min-h-full w-full">
+      <div :class="logo">
+        <a href="#intro" class="cursor-pointer">
+          <SVGRenderer :as-is="true" :svg="svgString" class="h-10"></SVGRenderer>
+        </a>
       </div>
-    </button>
+      <div :class="buttonContainer">
+        <a href="#about" :class="navButton" @click="handleNavigation">About</a>
+        <a href="#experience" :class="navButton" @click="handleNavigation">Experience</a>
+        <a href="#contact" :class="navButton" @click="handleNavigation">Message Me</a>
+        <a
+          :href="pdf"
+          target="_blank"
+          class="action-button hover:text-green-slime hover:border-green-slime cursor-pointer duration-100">
+          Resume
+        </a>
+      </div>
+      <button
+        v-if="navigationStore.isMobile"
+        class="tab absolute flex items-center justify-center z-10 right-0 h-10 w-10 top-0 mt-8 mr-6"
+        @click="clickHandler">
+        <div class="flex flex-col justify-center items-center relative h-4 w-4">
+          <div id="line-one" :class="lineOne"></div>
+          <div id="line-two" :class="lineTwo"></div>
+          <div id="line-three" :class="lineThree"></div>
+        </div>
+      </button>
+      <div
+        v-if="navigationStore.homeVisited && isOpen && navigationStore.isMobile" 
+        class="flex justify-center mt-auto p-10">
+        <SocialBadges></SocialBadges>
+      </div>
+    </div>
     <div
       v-if="navigationStore.homeVisited && isOpen && navigationStore.isMobile" 
-      class="mt-auto pb-10">
+      class="mt-auto p-10">
       <Footer></Footer>
     </div>
   </nav>
@@ -43,6 +49,7 @@ import SVGRenderer from "./SVGRenderer.vue"
 import Footer from "./Footer.vue"
 import svgString from "../assets/logo-name.svg?raw"
 import pdf from "../assets/CS_Resume_07-13-2022.docx.pdf?url"
+import SocialBadges from "./SocialBadges.vue"
 
 const isOpen: Ref<boolean> = ref(false);
 
@@ -103,7 +110,7 @@ const logo = computed(() => ({
 }));
 
 const navBar = computed((): object => ({
-  "flex flex-shrink-0 bg-green-gray-dark transition": true,
+  "flex flex-shrink-0 bg-green-gray-dark": true,
   "flex-col": navigationStore.isMobile,
   "justify-between items-center": !isOpen.value || !navigationStore.isMobile,
   "h-screen": isOpen.value && navigationStore.isMobile,

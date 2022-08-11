@@ -1,6 +1,6 @@
 <template>
   <nav :class="navBar">
-    <div class="flex flex-col min-h-full w-full">
+    <div :class="navContent">
       <div :class="logo">
         <a href="#intro" class="cursor-pointer">
           <SVGRenderer :as-is="true" :svg="svgString" class="h-10"></SVGRenderer>
@@ -112,9 +112,13 @@ const logo = computed(() => ({
 const navBar = computed((): object => ({
   "flex flex-shrink-0 bg-green-gray-dark": true,
   "flex-col": navigationStore.isMobile,
-  "justify-between items-center": !isOpen.value || !navigationStore.isMobile,
   "h-screen": isOpen.value && navigationStore.isMobile,
 }));
+
+const navContent = computed((): object => ({
+  "flex flex-col min-h-full w-full": isOpen.value && navigationStore.isMobile,
+  "flex justify-between items-center w-full": !isOpen.value || !navigationStore.isMobile,
+}))
 
 const buttonContainer = computed((): object => ({
   "grid grid-flow-col gap-8 items-center": !navigationStore.isMobile,

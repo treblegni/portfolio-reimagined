@@ -6,8 +6,9 @@
       </a>
     </div>
     <div :class="buttonContainer">
-      <a href="#about" :class="navButton" @click="handleNavigation"> About </a>
-      <a href="#contact" :class="navButton" @click="handleNavigation"> Message Me </a>
+      <a href="#about" :class="navButton" @click="handleNavigation">About</a>
+      <a href="#experience" :class="navButton" @click="handleNavigation">Experience</a>
+      <a href="#contact" :class="navButton" @click="handleNavigation">Message Me</a>
       <a
         :href="pdf"
         target="_blank"
@@ -110,11 +111,11 @@ const navBar = computed((): object => ({
 const buttonContainer = computed((): object => ({
   "grid grid-flow-col gap-8 items-center": !navigationStore.isMobile,
   "grid grid-flow-row gap-8 text-center mt-4": navigationStore.isMobile && isOpen.value,
-  hidden: navigationStore.isMobile && !isOpen.value,
+  "hidden": navigationStore.isMobile && !isOpen.value
 }));
 
 const navButton = computed((): object => ({
-  "tab hover:text-green-slime duration-100": true,
+  "tab hover:text-green-slime duration-100 ": true,
 }));
 
 const lineOne = computed(() => ({

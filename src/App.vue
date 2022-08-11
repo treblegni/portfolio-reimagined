@@ -5,7 +5,7 @@
     class="px-10 absolute z-10 top-0 left-0 w-full">
   </Navigation>
 </transition>
-<div class="flex justify-center px-10">
+<div class="flex justify-center">
   <div class="max-w-screen-lg w-full">
     <router-view></router-view>
   </div>
@@ -94,11 +94,11 @@ onMounted(() : void => {
 })
 </script>
 
-<style>
+<style scoped>
   /* we will explain what these classes do next! */
   .v-enter-active,
   .v-leave-active {
-    transition: opacity 1s ease;
+    transition: opacity 0.5s ease;
   }
 
   .v-enter-from,

@@ -1,7 +1,8 @@
 <template>
-<div class="flex flex-col items-center py-8">
+<div class="flex flex-col items-center">
   <div class="grid grid-flow-row gap-2 relative mb-2">
-    <p :class="footer">Designed & Built<br v-if="navigationStore.isMobile"> by <br v-if="navigationStore.isMobile"><span class="sub-title text-green-slime">Ingelbert Figueroa</span></p>
+    <span :class="footer">Designed & Built by</span>
+    <span class="sub-title text-green-slime">Ingelbert Figueroa</span>
   </div>
   <div class="grid grid-flow-col gap-4">
     <div class="flex items-center">
@@ -37,8 +38,8 @@ const watchCount:Ref<Number> = ref<Number>(0)
 const starCount:Ref<Number> = ref<Number>(0)
 
 const footer = computed(() => ({
-  'text-center': navigationStore.isMobile,
-  'tab': true
+  'text-center': true,
+  'footer': true
 }))
 
 onMounted(async () => {

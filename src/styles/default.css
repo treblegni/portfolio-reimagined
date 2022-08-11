@@ -61,6 +61,12 @@ body {
   @apply text-sm;
 }
 
+.footer {
+  font-family: 'Source Code Pro',monospace;
+  font-weight: 400;
+  @apply text-xs;
+}
+
 .action-button-text {
   font-family: 'Source Code Pro',monospace;
   font-weight: 700;

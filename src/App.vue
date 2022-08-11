@@ -13,10 +13,12 @@
 <transition>
   <SocialBadges
     v-if="navigationStore.homeVisited && !navigationStore.isMobile"
-    class="fixed ml-10 mb-8 bottom-0 left-0">
+    class="fixed m-10 bottom-0 left-0">
   </SocialBadges>
 </transition>
-<Footer v-if="navigationStore.homeVisited"></Footer>
+<div class="p-10">
+  <Footer v-if="navigationStore.homeVisited"></Footer>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -32,6 +34,8 @@ const navBar:Ref<HTMLElement | null> = ref(null)
 let scrollPosition:Number = 0
 let animated:Boolean = false
 let closed:Boolean = false
+let closeTimout:ReturnType<typeof setTimeout>|null = null
+let navIsFocused = false
 
 const navigationScrollEffect = () => {
   const app = document.querySelector('div#app')
@@ -54,12 +58,17 @@ const navigationScrollEffect = () => {
               nav.style.transition = 'box-shadow 0.2s ease-out'
               closed = true
               animated = true
+              nav.removeEventListener('mouseenter',enterNavHandler)
+              nav.removeEventListener('mouseleave',leaveNavHandler)
             }
           }
         }
         else {
           if (app.scrollTop >= nav.offsetHeight) {
             if (closed) {
+              if (closeTimout) {
+                clearTimeout(closeTimout)
+              }
               anime({
                 targets: nav,
                 translateY: `0px`,
@@ -71,6 +80,22 @@ const navigationScrollEffect = () => {
               })
               closed = false
               animated = true
+
+              if (!navigationStore.isMobile) {
+                nav.addEventListener('mouseenter',enterNavHandler)
+                nav.addEventListener('mouseleave',leaveNavHandler)
+  
+                closeTimout = setTimeout(() => {
+                  if (app.scrollTop != 0 && !navIsFocused) {
+                    anime({
+                      targets: nav,
+                      translateY: `-${nav.offsetHeight}px`
+                    })
+                    closed = true
+                    animated = true
+                  }
+                },2000)
+              }
             }
           }
           else {
@@ -82,8 +107,29 @@ const navigationScrollEffect = () => {
         }
       }
       scrollPosition = app.scrollTop
-    } 
+    }
   })
+}
+
+const enterNavHandler = (e:Event) => {
+  navIsFocused = true
+}
+
+const leaveNavHandler = (e:Event) => {
+  const app = document.querySelector('div#app')
+  if (app) {
+    const nav:HTMLElement|null = app.querySelector('nav')
+    if (nav) {
+
+      navIsFocused = false
+      anime({
+        targets: nav,
+        translateY: `-${nav.offsetHeight}px`
+      })
+      closed = true
+      animated = true
+    }
+  }
 }
 
 onMounted(() : void => {

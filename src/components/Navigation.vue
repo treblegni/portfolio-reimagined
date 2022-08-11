@@ -27,10 +27,11 @@
         <div id="line-three" :class="lineThree"></div>
       </div>
     </button>
-    <Footer
-      v-if="navigationStore.homeVisited && isOpen && navigationStore.isMobile"
-      class="mt-auto"
-    ></Footer>
+    <div
+      v-if="navigationStore.homeVisited && isOpen && navigationStore.isMobile" 
+      class="mt-auto pb-10">
+      <Footer></Footer>
+    </div>
   </nav>
 </template>
 

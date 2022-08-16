@@ -151,26 +151,32 @@ const fetchExperience = (): void => {
 };
 
 const setMinHeightExperience = () => {
-  const
-    experienceSection = document.querySelector('div#experience'),
-    experienceChildDiv = experienceSection?.firstElementChild,
-    contentViews = experienceSection?.querySelectorAll('div#experience-content'),
-    experienceDisplay = experienceSection.style.display
-  experienceSection.style.display = null
+  const experienceSection:HTMLElement|null = document.querySelector('div#experience')
 
-  let height = 0
+  if (experienceSection) {
+    const
+      experienceChildDiv:HTMLElement|null = experienceSection.firstElementChild as HTMLElement,
+      contentViews:NodeListOf<HTMLElement> = experienceSection.querySelectorAll('div#experience-content'),
+      experienceDisplay = experienceSection.style.display
+    experienceSection.style.display = ''
 
-  contentViews?.forEach((content) => {
-    const displayValue = content.style.display
-    content.style.display = null
-    const currentHeight = experienceChildDiv.offsetHeight
-    if (currentHeight > height) {
-      height = currentHeight
-    }
-    content.style.display = displayValue
-  })
-  experienceChildDiv.style.minHeight = `${height}px`
-  experienceSection.style.display = experienceDisplay
+    let height = 0
+  
+    contentViews.forEach((content:HTMLElement) => {
+      const displayValue = content.style.display
+      content.style.display = ''
+      
+      if (experienceChildDiv) {
+        const currentHeight = experienceChildDiv.offsetHeight
+        if (currentHeight > height) {
+          height = currentHeight
+        }
+      }
+      content.style.display = displayValue
+    })
+    experienceChildDiv.style.minHeight = `${height}px`
+    experienceSection.style.display = experienceDisplay
+  }
 }
 
 const tab = (isActive: Boolean) => ({

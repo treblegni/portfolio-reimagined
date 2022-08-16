@@ -73,7 +73,7 @@
             <div class="text-xs regular-code">
               {{ exp.startDate }} - {{ exp.endDate }}
             </div>
-            <p class="content-text mt-4" v-text="exp.responsibilities"></p>
+            <p class="content-text mt-4" v-html="exp.responsibilities"></p>
           </div>
         </div>
       </template>
@@ -123,7 +123,7 @@ const fetchExperience = (): void => {
       startDate: "09/2020",
       endDate: "08/2022",
       responsibilities:
-        "At gateB, I primarily focused on Frontend development and productivity tools. My responsibilities included creating implementations that met client scopes, designing, and testing our integrations. I also wrote scripts for automating part of the busy work needed for our development cycles using Python and Javascript. When not developing, I would also assist with deployments which often required bootstrapping of assets.",
+        "At gateB, I was responsible for owning all Frontend implementations for the systems we developed and was involved in the design and planning phases for some of the features. I was also responsible for building upon and improving our frontend development process by introducing modern technologies and libraries to meet project requirements and time constraints.<br><br>Other responsibilities included creating tools for supporting our development cycle, content creation, and testing, and supporting live systems we develop.",
       previewImage: "https://i.imgur.com/PACoDXO.png",
     },
     {
@@ -133,7 +133,7 @@ const fetchExperience = (): void => {
       startDate: "05/2020",
       endDate: "09/2020",
       responsibilities:
-        "At VotingSmarter, me and a team of 3 developers were tasked to develop an internal tool that content managers could interface with to manage questions and datasets for the VotingSmarter App. We built the portal from the ground up using ReactJS and Firebase with me helming Front-end development and design.",
+        "I was responsible for developing the Frontend for the internal portal that internal users use to manage data for the VotingSmarter App and website.<br><br>The portal was built from the ground up using ReactJS, Sass, and Firebase with me making decisions on design and architecture.",
       previewImage: "https://i.imgur.com/64XukSe.png",
     },
     {
@@ -143,7 +143,7 @@ const fetchExperience = (): void => {
       startDate: "06/2019",
       endDate: "09/2020",
       responsibilities:
-        "At Los Angeles City Hall, I handled support tickets employees submitted relating to computer repair, network configuration and diagnostics, account access and security, and general maintenance.",
+        "At Los Angeles City Hall, I was responsible for supporting our 100+ users. Daily tasks included responding to support tickets via the internal ticketing system and gathering information about the issue and then offering solutions. If the issue was hardware based, then I would schedule a time and day for maintenance.<br><br>I was also responsible for managing user accounts, software updates, simple network setup and configuration, user security, and data backup.",
       previewImage: "https://i.imgur.com/93yFF1R.png",
     },
   ];

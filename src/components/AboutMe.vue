@@ -136,10 +136,10 @@ const scaleDown = (e:any) => {
 }
 
 const svgContainerClasses = computed(() => ({
-  'h-12 m-2': true
+  'h-12 w-12 m-2': true
 }))
 
 const svgClasses = computed(() => ({
-  'h-full': true
+  'h-full w-full': true
 }))
 </script>

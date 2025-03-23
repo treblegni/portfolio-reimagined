@@ -6,6 +6,7 @@
   </Navigation>
 </transition>
 <div class="flex justify-center">
+  {{ navigationStore.homeVisited }}
   <div class="max-w-screen-lg w-full">
     <router-view></router-view>
   </div>

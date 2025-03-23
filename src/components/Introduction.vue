@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import {navigationStore} from '../stores/navigation-store'
+import { navigationStore } from '../stores/navigation-store'
 
 const instructions = computed(() =>({
   'transition-opacity duration-500': true,

@@ -8,6 +8,7 @@
       </div>
       <div :class="buttonContainer">
         <a href="#about" :class="navButton" @click="handleNavigation">About</a>
+        <a href="projects" :class="navButton" @click="handleNavigation">Projects</a>
         <a href="#experience" :class="navButton" @click="handleNavigation">Experience</a>
         <a href="#contact" :class="navButton" @click="handleNavigation">Message Me</a>
         <a
@@ -110,7 +111,7 @@ const logo = computed(() => ({
 }));
 
 const navBar = computed((): object => ({
-  "flex flex-shrink-0 bg-green-dark": true,
+  "flex flex-shrink-0 bg-green-dark navbar": true,
   "flex-col": navigationStore.isMobile,
   "h-screen": isOpen.value && navigationStore.isMobile,
 }));
@@ -142,3 +143,18 @@ const lineThree = computed(() => ({
   "border-t-2 rounded w-full border-cream": true,
 }));
 </script>
+
+<style>
+@reference "../index.css";
+
+.navbar::before {
+  content: '';
+  height: 300px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  @apply bg-green-dark;
+}
+</style>

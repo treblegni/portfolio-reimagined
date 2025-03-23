@@ -1,8 +1,6 @@
-import axios from 'axios';
-import Repo from '../interfaces/Repo';
 import { navigationStore } from '../stores/navigation-store';
 
-const endpoint = '/api/get-repo'
+const githubApi = 'https://api.github.com'
 const user = 'treblegni'
 const repo = 'portfolio-reimagined'
 
@@ -25,11 +23,8 @@ export const mobileStateHandler = () : void => {
 }
 
 export const getRepo = () : any => {
-  return axios({
-    method: 'GET',
-    url: `${endpoint}?user=${user}&repo=${repo}`
-  })
-  .then(res => res.data)
+  return fetch(`${githubApi}/repos/${user}/${repo}`)
+  .then(res => res.json())
   .then(data => {
     return {watchers_count: data.watchers_count,stargazers_count: data.stargazers_count}
   })

@@ -3,12 +3,12 @@
     <div class="flex relative mb-8 flex-shrink-0">
       <div>
         <p class="sub-title mb-2">Work</p>
-        <p class="secondary-title text-green-slime bg-green-gray-dark pr-4">
+        <p class="secondary-title text-green-slime bg-green-dark pr-4">
           Experience
         </p>
       </div>
       <div
-        class="absolute border-b-2 border-green-gray-regular w-full top-9 -z-10"
+        class="absolute border-b-2 border-green-regular w-full top-9 -z-10"
       ></div>
     </div>
     <div :class="experienceContainer">
@@ -48,7 +48,7 @@
         </div>
         <div
           v-if="!navigationStore.isMobile"
-          class="border-b-2 border-green-gray-regular w-full mt-auto"></div>
+          class="border-b-2 border-green-regular w-full mt-auto"></div>
       </div>
       <template v-for="exp in experience">
         <div
@@ -57,7 +57,7 @@
           id="experience-content">
           <div>
             <div
-              class="relative overflow-hidden border-2 border-green-gray-medium rounded-md w-full"
+              class="relative overflow-hidden border-2 border-green-medium rounded-md w-full"
               style="padding-bottom: 100%">
               <img
                 :src="exp.previewImage"
@@ -220,7 +220,7 @@ const experienceNav = computed((): object => ({
 
 const experienceButtons = computed((): object => ({
   "absolute top-0 right-0 h-full grid grid-flow-col gap-8": !navigationStore.isMobile,
-  "absolute z-10 bg-green-gray-dark h-full sm:w-auto sm:static top-0 left-0 flex flex-col pr-10 items-start overflow-hidden": navigationStore.isMobile,
+  "absolute z-10 bg-green-dark h-full sm:w-auto sm:static top-0 left-0 flex flex-col pr-10 items-start overflow-hidden": navigationStore.isMobile,
 }))
 
 const experienceButtonsMobile = computed((): object => ({

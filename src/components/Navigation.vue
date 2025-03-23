@@ -110,7 +110,7 @@ const logo = computed(() => ({
 }));
 
 const navBar = computed((): object => ({
-  "flex flex-shrink-0 bg-green-gray-dark": true,
+  "flex flex-shrink-0 bg-green-dark": true,
   "flex-col": navigationStore.isMobile,
   "h-screen": isOpen.value && navigationStore.isMobile,
 }));

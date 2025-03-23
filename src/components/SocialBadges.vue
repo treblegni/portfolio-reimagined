@@ -3,13 +3,13 @@
   <a href="https://www.linkedin.com/in/ingelbert-figueroa-b75299182/" class="mr-4">
     <SVGRenderer
         :svg="linkedin"
-        class="h-6 fill-current text-green-gray-regular hover:text-cream transition duration-100">
+        class="h-6 fill-current text-green-regular hover:text-cream transition duration-100">
     </SVGRenderer>
   </a>
   <a href="https://github.com/treblegni">
     <SVGRenderer
         :svg="github"
-        class="h-6 fill-current text-green-gray-regular hover:text-cream transition duration-100">
+        class="h-6 fill-current text-green-regular hover:text-cream transition duration-100">
     </SVGRenderer>
   </a>
 </div>

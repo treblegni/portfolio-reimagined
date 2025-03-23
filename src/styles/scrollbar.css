@@ -6,16 +6,16 @@
 /* Track */
 ::-webkit-scrollbar-track {
   border-radius: 100vh;
-  @apply border-green-gray-light;
+  @apply border-green-light;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 100vh;
-  @apply bg-green-gray-medium border-2 border-green-gray-light;
+  @apply bg-green-medium border-2 border-green-light;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-green-gray-light;
+  @apply bg-green-light;
 }

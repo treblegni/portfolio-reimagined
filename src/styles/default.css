@@ -1,5 +1,5 @@
 body {
-  @apply bg-green-gray-dark text-cream;
+  @apply bg-green-dark text-cream;
 }
 
 #app {
